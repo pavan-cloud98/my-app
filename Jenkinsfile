@@ -9,7 +9,7 @@ pipeline {
 
         stage('Clone Repo') {
             steps {
-                git https://github.com/pavan-cloud98/my-app.git
+                git "https://github.com/pavan-cloud98/my-app.git"
             }
         }
 
@@ -44,4 +44,5 @@ pipeline {
         }
     }
 }
+
 

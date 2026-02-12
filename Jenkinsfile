@@ -7,12 +7,6 @@ pipeline {
 
     stages {
 
-        stage('Clone Repo') {
-            steps {
-                git "https://github.com/pavan-cloud98/my-app.git"
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t $DOCKER_IMAGE:latest .'
@@ -44,5 +38,6 @@ pipeline {
         }
     }
 }
+
 
 

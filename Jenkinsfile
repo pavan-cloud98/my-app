@@ -7,6 +7,12 @@ pipeline {
 
     stages {
 
+        stage('Clone Code') {
+            steps {
+                git branch: 'main', url: 'https://github.com/pavan-cloud98/my-app.git'
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t $DOCKER_IMAGE:latest .'
@@ -33,7 +39,7 @@ pipeline {
 
         stage('Deploy to Kubernetes') {
             steps {
-                sh 'kubectl apply -f k8s.yaml'
+                sh 'kubectl rollout restart deployment my-app'
             }
         }
     }
